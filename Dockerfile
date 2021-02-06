@@ -60,8 +60,7 @@ RUN echo "deb http://deb.debian.org/debian/ unstable main" > /etc/apt/sources.li
 
 VOLUME /blackhole /config
 
-ADD openvpn/ /etc/openvpn/
-ADD jackett/ /etc/jackett/
+HEALTHCHECK --interval=5m CMD /etc/jackett/healthcheck.sh
 
 RUN chmod +x /etc/jackett/*.sh /etc/jackett/*.init /etc/openvpn/*.sh /opt/Jackett/jackett
 
